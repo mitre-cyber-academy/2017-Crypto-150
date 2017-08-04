@@ -156,16 +156,14 @@
         var stuffLength = stuff.length;
       for(i = 0; i < stuffLength; i++)
       {
-      console.log(i);
+      console.log(String.fromCodePoint(stuff[i]));
       for(j = 0; j < stuffLength; j++)
       {
 
-        res = String.fromCodePoint(stuff[i])+String.fromCodePoint(stuff[j]);  
-        
-
+        res = String.fromCodePoint(stuff[i])+String.fromCodePoint(stuff[j]); 
         
         var passphrase = res;//document.getElementById('staticrypt-password').value,
-            encryptedMsg = '0d803b4b50739beba54d018fe9f8e08d1139d9061274d40df7b44cc2822f47b4U2FsdGVkX18+nzDFMqWKF0EcmYhuNNpUxX+GhfteFjdIytezLQoTJPPF0bmlc9wzsvTum9JPBVKHOCqYz2WvWXifjeUc9FR5Zg2y8qo7GSDAxm4rJ7quFFBkNG9U4qZhaxPojHQZ0c6eYfB0+Bh+nICWeKwSFxRIxLz+1G3be33/17vv2i/B9EIU0OwdgLm9hs5K5QwPPc1arsA5HvqxnuyVqOMspaF773ZVpkeqIoBA8FFd45NBa6C3SRD/6FNa6JNky0g2O2xYJdOMm5hRAz8GdoKsTm6Xcn/z4Eq9tjyEa7BAXgeEvl7P9EQt0Z6buoEhRoudQAjUVePvU+DwugcrZ7UrAhA1CYOpu0fMs8og7hHo7MYFoEASIAqyl7aoJytQDLrSiGZu8qr+rYqtP9bDSY9tp14gtlztFK6tHTLygOmgA9TeqonNT2Yvstan+RokBAAg7RQMd9s4/c/h5X1VYL0+2SD3mLnx2A66uxpC6mASBSSwgjDL5W/4jHoA0mdDLOcGbCuOusSvtrQXVPVt9jDkosEwBEg+ZvNV14QZAPBnyZobTAuViq4Zep3HXEbBqpCIhX/kPrCUYpeGFC01VZYid9wBo3c2zzjHqeGN51BrX+Wvf+65/ZFhV+ZWaCAsUQqgMoCu1bWYyJprdw==',
+            encryptedMsg = 'ec16126fbd494f631687845642741f645008c6144713db6bf47786fc7f845307U2FsdGVkX1+4PV8gaslHGC3wCmxL8/ufE4+IFX24egiWu2ma934OML9dsYOlrt+uWTK/i40/bg6YBjAG7dpCcU4qrcnUk3QnuvqsIqDtHPIMFWbdUxPAzqr6U+hDqvJ0mKbPcP0eK+OKlJAPmCOTFM0yoLYnRAPdti6G55wKop5+D8NUOudFOysTySI597ULQQWMFaJ4YOMV5VWOl1x9dkcqxSVsb8DWLcoL8Oia2CisHKUw0IHl1ggzy4uD5cAVn/Wa/5Qahl/i1QgwB3p8pmaPvljezmcOk5eiXdTA6OgqpZNWxHHguZ6pOm9uDfDMCkfB4Vr/mbwQhyRJVJDfUprXdIH0x/U4CKZ1K+iCTauOyyBPCYz05KOAthbs9L/gf/FW0d8V41WYxRGvkVkWjmHfcwEKNxCTBm0kZcaJa/3bZLpCuLgjaMkeWIWUPky0ROq0cD+lyh/jDdcVlzCpnfhpbepu731VVNlPgOJAnwWJQcMp/MZtaTtrEenfiH7LNdU3HXLg8z6FPOlYDbCY4njYDF+8PsFgLiQeLEldfUB8ftbmHNAkKMK0S4umJnxo1VVyN/g7mV6muhx2PvJzq699c1xQGQPgUAMobulw13iDGUicxwroR9gy3u1rOlN1T/B8eFB0q5BTSXj7eGw/xA==',
             encryptedHMAC = encryptedMsg.substring(0, 64),
             encryptedHTML = encryptedMsg.substring(64);
              try 
@@ -176,7 +174,6 @@
              {
                 //console.log("exception");
              }
-            
 
         if (decryptedHMAC !== encryptedHMAC) {
             //alert('Bad passphrase !');
@@ -184,9 +181,11 @@
         }
         else
         {
+            
             var plainHTML = CryptoJS.AES.decrypt(encryptedHTML, passphrase).toString(CryptoJS.enc.Utf8);
             document.write(plainHTML);
             document.close();
+            return;
         }
   
         
