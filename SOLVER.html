@@ -156,19 +156,19 @@
         var stuffLength = stuff.length;
       for(i = 0; i < stuffLength; i++)
       {
-      console.log(String.fromCodePoint(stuff[i]));
       for(j = 0; j < stuffLength; j++)
       {
 
         res = String.fromCodePoint(stuff[i])+String.fromCodePoint(stuff[j]); 
         
-        var passphrase = res;//document.getElementById('staticrypt-password').value,
-            encryptedMsg = 'ec16126fbd494f631687845642741f645008c6144713db6bf47786fc7f845307U2FsdGVkX1+4PV8gaslHGC3wCmxL8/ufE4+IFX24egiWu2ma934OML9dsYOlrt+uWTK/i40/bg6YBjAG7dpCcU4qrcnUk3QnuvqsIqDtHPIMFWbdUxPAzqr6U+hDqvJ0mKbPcP0eK+OKlJAPmCOTFM0yoLYnRAPdti6G55wKop5+D8NUOudFOysTySI597ULQQWMFaJ4YOMV5VWOl1x9dkcqxSVsb8DWLcoL8Oia2CisHKUw0IHl1ggzy4uD5cAVn/Wa/5Qahl/i1QgwB3p8pmaPvljezmcOk5eiXdTA6OgqpZNWxHHguZ6pOm9uDfDMCkfB4Vr/mbwQhyRJVJDfUprXdIH0x/U4CKZ1K+iCTauOyyBPCYz05KOAthbs9L/gf/FW0d8V41WYxRGvkVkWjmHfcwEKNxCTBm0kZcaJa/3bZLpCuLgjaMkeWIWUPky0ROq0cD+lyh/jDdcVlzCpnfhpbepu731VVNlPgOJAnwWJQcMp/MZtaTtrEenfiH7LNdU3HXLg8z6FPOlYDbCY4njYDF+8PsFgLiQeLEldfUB8ftbmHNAkKMK0S4umJnxo1VVyN/g7mV6muhx2PvJzq699c1xQGQPgUAMobulw13iDGUicxwroR9gy3u1rOlN1T/B8eFB0q5BTSXj7eGw/xA==',
+ 			var passphrase = document.getElementById('staticrypt-password').value,
+            encryptedMsg = 'aef50f04292af2f4c063967bab63ba2a3c2804399e65ba3f61f061f924a9baf1U2FsdGVkX1+Uq+uFrMLmcEQ0YtYelIQnAmf7jpg75d2MwCUDhmtX2nW5Q3ccjXMEXK5rO50YWfd4LcFF3SlirE3nVckeQf5TNu8RSOzJSGS2hOEXNlz1/hLeyEcEtby0vVQTGXhMMFTdKial0/p+Kj17NbWPMLfy9WUYhHf3lAFuAg/1k4322yMV4y4NeIFPoNESRaBrbn2P2DcsSOZEDLfhh9WyXX323oyQqN/tBtNSAQ9P9QGQq1mCg1Fxidp70ep4ycx0fobAOLmxwmJfoUtcuZgn+XKaO78DTxErUcvJ8FTQt8O24t+ezSqPaWkUs/xT2vIJmZIxw6RSf6bSKdHwtP8Gxawk+7ZNS7tkdhcvg0li95lM83GUlMjKEYPJ9GFLD5k8CuqJdk6CO2ILCQMzhHuwHZLSmSR9Xyepak38n9qEBNiERGxWLU6T1GsvrQd3W07RQBgS1fWIOSU+vXrwlY0eUlPxKwwEOQEq/7DHFHecrPRv4eYWc14NnQAIOVjdbNgcyOse2BHCToo4UCxoxDu3+3e7buR2fVGj0qeolVL6fb8TKWGccDH72Z0NJxxskkgjZQBeEACxbmFwkdBKJjQZDIddTtXCLprLsKvtW8W9KQl/BfS723P8OJqkjoKxDKCsC4zGWvSPkE89Qg==',
             encryptedHMAC = encryptedMsg.substring(0, 64),
             encryptedHTML = encryptedMsg.substring(64);
              try 
              {
                var decryptedHMAC = CryptoJS.HmacSHA256(encryptedHTML, CryptoJS.SHA256(passphrase)).toString();
+               
              }//end catch exception 
               catch (ex) 
              {
@@ -187,8 +187,7 @@
             document.close();
             return;
         }
-  
-        
+   
       }//end second for loop
       }//end first loop
 
